@@ -45,7 +45,7 @@ select {
     border: 0;
     display: inline;
     /* float: right; */
-    left: -30px;
+    left: -34px;
     position: relative;
     width: 2px;
 }
@@ -219,7 +219,7 @@ body {
 }
 
 .inputValue {
-    width: 85%;
+    width: 74%;
     padding: 10px;
     border-radius: 0px;
     border: 1px solid #dedede;
