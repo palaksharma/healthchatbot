@@ -1,0 +1,45 @@
+<div class="container-fluid bg-image margin0" *ngIf="startScreen==true">
+
+    <div class="col-sm-12 pad-50">
+        <div class="image-container">
+            <div class="col-sm-4 text-right">
+                <img src="../../assets/img/Anju_Bot.png">
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="talk-bubble tri-right border round btm-left-in">
+                        <p class="message intro-message" id="intro">
+                            नमस्ते, मैं अंजू हूं और मैं यहां आपको जानकारी प्रदान करने और उन विषयों पर शिक्षित करने में मदद कर राही हूं जो आपको स्वस्थ जीवन जीने में मदद करेंगे। आप मुझसे बिना किसी डर के कुछ भी बात कर सकते हैं। मैं आपका सबसे अच्छी सहेली हूं और आपकी देखभाल करने के लिए
+                            यहां हूं।
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text-left pad-50">
+                        <a class="buttonGlow" (click)="showTemplate()">शुरू करें</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container-fluid bg-image" *ngIf="introIsCompleted==true">
+    <div class="col-sm-12">
+        <div class="col-sm-6">
+            <img src="../../assets/img/Anju_Bot.png">
+            <div class="pad-50">
+                <p>
+                    आप हमारे साथ चैट कर सकते हैं या आप किसी विशेषज्ञ से सलाह ले सकते हैं, जो आपके सवालों का जवाब दे सके और आपको विश्वास दिला सके</p>
+            </div>
+        </div>
+        <div class="col-sm-6 pad-50">
+            <button type="button" id="buttonOpt"><a routerLink="/chat" routerLinkActive="active">Chat With Us</a></button>
+            <button type="button" id="buttonOpt"><a href="https://api.whatsapp.com/send?phone=+918826470577&text=urlencodedtext" routerLinkActive="active">Voice Call With Us</a></button>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 pull-left">
+    <select id="select1">
+    </select>
+</div>

@@ -1,0 +1,45 @@
+<div class="sidebar-wrapper">
+    <div class="logo">
+        <a href="http://www.google.com" class="simple-text">
+            Health Chat Bot
+        </a>
+    </div>
+    <ul class="nav responsive-nav">
+        <!-- <li *ngIf="isMobileMenu()">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-dashboard"></i>
+				<p class="hidden-lg hidden-md">{{menuItem.title}}</p>
+            </a>
+        </li> -->
+        <li *ngIf="isMobileMenu()">
+            <a>
+                <p>Log out</p>
+            </a>
+        </li>
+        <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
+        <li *ngIf="isSideBaristrue()">
+            <a routerLink="/dashboard">
+                <i class="pe-7s-note2"></i>
+                <p>Health And Advisors</p>
+            </a>
+        </li>
+        <li *ngIf="isSideBaristrue()" class="">
+            <a routerLink="/jobs">
+                <i class="pe-7s-note2"></i>
+                <p>NGO Governance</p>
+            </a>
+        </li>
+        <li *ngIf="isSideBarisfalse()">
+            <a routerLink="/introMessage">
+                <i class="pe-7s-note2"></i>
+                <p>Chat</p>
+            </a>
+        </li>
+        <li *ngIf="isSideBarisfalse()">
+            <a routerLink="/scheduling">
+                <i class="pe-7s-note2"></i>
+                <p>Schedule An Appointment</p>
+            </a>
+        </li>
+    </ul>
+</div>

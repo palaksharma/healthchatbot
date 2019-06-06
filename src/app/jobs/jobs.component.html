@@ -1,0 +1,43 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card incHeight">
+                    <div class="header">
+                        <h4 class="title">Data of problems been raised</h4>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <!-- <th scope="col">#</th> -->
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Place</th>
+                                    <th scope="col">Problem</th>
+                                    <th scope="col">Answered Via</th>
+                                    <th scope="col">Prescription</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of data">
+                                    <!-- <th scope="row">{{i+1}}</th> -->
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.age}}</td>
+                                    <td>{{item.place}}</td>
+                                    <td>{{item.problem}}</td>
+                                    <td>{{item.answered}}</td>
+                                    <td>{{item.prescription}}</td>
+                                    <td>{{item.status}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

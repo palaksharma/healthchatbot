@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+.main-panel .main-content {
+    background-color: #6c757d !important;
+    color: #fff !important;
+}
+
+.progress-bar-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.progress-bar-margin {
+    margin: 0 0px;
+    height: 30px;
+}
+
+.progress-bar-container h6 {
+    font-size: 12px;
+    margin-bottom: 0px;
+    /* color: darkgray; */
+}
+
+.ao-overall-status,
+.ao-overall-chart {
+    display: inline;
+}
+
+.ps__rail-y {
+    display: none;
+}
+
+.modal-open .modal {
+    background-color: #031618;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+#modal .modal-header {
+    background-color: #031618;
+    color: #fff;
+    border: 1px solid #fff;
+}

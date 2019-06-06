@@ -1,0 +1,40 @@
+<div class="container-fluid bg-image">
+    <div class="col-sm-12 text-center">
+        <ng-template #template>
+            <div class="modal-header">
+                <h4 class="modal-title">दस्तावेज़ अपलोड करें</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <p>कृपया चिंता दस्तावेज या पर्चे अपलोड करें</p>
+                <angular-file-uploader [config]="afuConfig" [resetUpload]=resetVar (ApiResponse)="DocUpload($event)">
+                </angular-file-uploader>
+            </div>
+        </ng-template>
+    </div>
+    <div class="col-sm-12 margin0 bg-image">
+        <div class="dialog-box" id="style-2">
+            <form class="form" id="template-container">
+                <ng-container *ngFor="let message of messages | async">
+                    <div class="message pad-15" [ngClass]="{ 'from': message.sentBy==='bot' , 'to': message.sentBy==='user' } ">
+                        <input type="text" id="txt" class="txtNode" name="inputxt" value="{{message.content}}">
+                    </div>
+                </ng-container>
+                <div id="showMessage" class="txtNode"></div>
+            </form>
+        </div>
+        <div class="fixedDiv">
+            <div class="col-sm-2 pad-15">
+                <select id="select"></select>
+            </div>
+            <div class="col-sm-10 pad-15">
+                <input type="text " class="inputValue" id="inputValuetxt" name="" [(ngModel)]="formValue" placeholder="कृपया एक अपॉइंटमेंट सेट करें" (keyup.enter)="sendMessage()">
+                <button class="microphoneBtn" name="btnActivateSpeechSearchMovie" id="btnActivateSpeechSearchMovie " (click)="activateSpeechSearchMovie()" [disabled]="!showSearchButton">
+                                        <i class="fa fa-microphone" aria-hidden="true"></i>
+                                    </button>
+            </div>
+        </div>
+    </div>
+</div>
