@@ -1,6 +1,6 @@
 /**
  * NG_DIR_PATH_HEALTH = /app
- * NG_PORT_HEALTH = 3001
+ * NG_PORT_HEALTH = 3000
  */
 const express = require('express');
 const app = express();
