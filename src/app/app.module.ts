@@ -32,7 +32,6 @@ import { LoginComponent } from 'app/login/login.component';
 import { ParticlesModule } from 'angular-particle';
 import {ChatService} from './chat.service';
 import {SpeechRecognitionService} from './speech_recognition.service';
-import { TypingAnimationDirective } from 'angular-typing-animation';
 
 
 @NgModule({
@@ -63,8 +62,7 @@ import { TypingAnimationDirective } from 'angular-typing-animation';
   declarations: [
     AppComponent,
     LoginComponent,
-    AdminLayoutComponent,
-    TypingAnimationDirective,
+    AdminLayoutComponent
 
   ],
   providers: [
