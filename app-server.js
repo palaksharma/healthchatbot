@@ -84,7 +84,7 @@ app.post('/validateLogin', bodyParser.json(), (req, res) => {
 
 /* Handle all application URL(s) */
 app.get('/*', (req, res) => {
-    res.sendFile(path.join('/index.html'));
+    res.sendFile(path.join(__dirname, NG_DIR_PATH_HEALTH, '/index.html'));
 });
 
 /* Create the server for application */
