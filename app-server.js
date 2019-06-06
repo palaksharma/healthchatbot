@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const hsts = require('hsts');
 const helmet = require('helmet');
-// const request = require('request');
+const request = require('request');
 const jwt = require('jsonwebtoken');
 const config = require('./config');
 
