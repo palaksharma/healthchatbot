@@ -8,7 +8,6 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {HttpClient} from '@angular/common/http';
 import { Http, Headers } from '@angular/http';
 
-
 // Message class for displaying messages in the component
 export class Message {
   constructor(public content: string, public sentBy: string) { }
@@ -16,13 +15,12 @@ export class Message {
 
 @Injectable()
 export class ChatService {
-
-  readonly token = environment.dialogflow.angularBot;
-  readonly client = new ApiAiClient({ accessToken: this.token });
+  token = "680f27497a674e2389fc3bf44f5471f5";
+  client = new ApiAiClient({ accessToken: this.token });
 
   conversation = new BehaviorSubject<Message[]>([]);
 
-  private baseURL: string = "https://api.dialogflow.com/v1/intents/0ea929f7-b46c-4a3c-ac3f-4b1620e204d9?v=20150910&lang=hi";
+  private baseURL: string = "https://api.dialogflow.com/v1/intents?v=20150910";
 
   constructor(private http: Http){}
 
@@ -34,10 +32,10 @@ export class ChatService {
       })
   }
 
-  tokenofDeveloperAcc = "680f27497a674e2389fc3bf44f5471f5";
+ 
   public getHeaders(){
     let headers = new Headers();
-    headers.append('Authorization', `Bearer ${this.tokenofDeveloperAcc}`);
+    headers.append('Authorization', `Bearer ${this.token}`);
     headers.append('Content-Type', 'application/json')
     return headers;
   }
