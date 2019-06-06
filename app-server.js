@@ -2,7 +2,6 @@
  * NG_DIR_PATH_HEALTH = /app
  * NG_PORT_HEALTH = 3001
  */
-const NG_PORT = 3001
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -90,5 +89,5 @@ app.get('/*', (req, res) => {
 
 /* Create the server for application */
 const server = http.createServer(app);
-const port = 3002;
+var port = process.env.PORT || 3000;
 server.listen(port, () => console.log('Health Chat Bot server is running on port ' + port + '...'));
