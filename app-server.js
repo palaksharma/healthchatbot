@@ -26,8 +26,7 @@ app.use(hsts({
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-
-const NG_DIR_PATH_HEALTH = process.env.NG_DIR_PATH_HEALTH || '/app';
+const NG_DIR_PATH_HEALTH = "/dist/HealthChatBot" || '/app';
 app.use(express.static(path.join(__dirname, NG_DIR_PATH_HEALTH)));
 
 // Mask Server version disclosure via HTTP response headers
