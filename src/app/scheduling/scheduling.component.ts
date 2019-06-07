@@ -137,6 +137,6 @@ export class SchedulingComponent implements OnInit{
   sendMessage() {
     this.chat.converse(this.formValue1);
     this.formValue1 = '';
-
+    console.log(this.formValue1);
   }
 }

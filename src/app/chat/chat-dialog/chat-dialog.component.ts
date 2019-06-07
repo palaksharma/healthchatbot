@@ -4,6 +4,7 @@ import { Observable, of, from } from 'rxjs';
 import 'rxjs/add/operator/scan';
 import { SpeechRecognitionService } from '../../speech_recognition.service';
 import * as $ from 'jquery/dist/jquery.min.js';
+import { validateConfig } from '@angular/router/src/config';
 
 
 
@@ -25,6 +26,7 @@ export class ChatDialogComponent implements OnInit {
     this.speechData = "";
     this.chat.conversation.subscribe(val => {
       this.data = val;
+      console.log("Data", this.data);
       if (this.data.length != 0) {
         this.content = this.data[0].content;
         if (typeof (this.content) == "object") {
@@ -40,6 +42,7 @@ export class ChatDialogComponent implements OnInit {
     this.showVoiceRecognition();
     this.messages = this.chat.conversation.asObservable()
     .scan((acc, val) => acc.concat(val));
+    console.log(this.messages);
   }
 
   ngOnDestroy() {
@@ -66,11 +69,8 @@ export class ChatDialogComponent implements OnInit {
       var id = btn.id;
       let self = this;
       btn.onclick = function (b) {
-        console.log((<HTMLInputElement>b.target).value);
         var tvalue = (<HTMLInputElement>b.target).value;
-        // var a;
         self.formValue = tvalue;
-        // console.log(a.formValue);
 
         var option = (<HTMLInputElement>document.getElementById("inputValuetxt")).value;
         option = (<HTMLInputElement>b.target).value;
@@ -86,12 +86,10 @@ export class ChatDialogComponent implements OnInit {
   showVoiceRecognition() {
     var arr = [];
     this.chat.conversation.subscribe(val => {
-      console.log(val);
       if (val.length != 0) {
         for (var i = 0; i < val.length; i++) {
           if (val[i].sentBy == "bot") {
             arr.push(val[i].content);
-            console.log("Array", arr);
             speak();
           }
         }
@@ -106,7 +104,6 @@ export class ChatDialogComponent implements OnInit {
     var rateValue = $('.rate-value');
 
     var voices = [];
-    console.log(synth)
 
     function populateVoiceList() {
       voices = synth.getVoices().sort(function (a, b) {
@@ -144,7 +141,6 @@ export class ChatDialogComponent implements OnInit {
         console.error('speechSynthesis.speaking');
         return;
       }
-      console.log("Last index of", arr.slice(-1)[0]);
       let data = arr.slice(-1)[0];
       if (data !== '') {
         var utterThis = new SpeechSynthesisUtterance(data);
@@ -209,7 +205,6 @@ export class ChatDialogComponent implements OnInit {
   /*Starting of Function to send message to dialog flow */
   sendMessage() {
     this.chat.getResponse(this.formValue).subscribe(val => {
-      console.log("Value",val);
     });
     this.chat.converse(this.formValue);
     this.formValue = '';
