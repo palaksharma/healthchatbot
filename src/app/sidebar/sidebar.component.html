@@ -26,7 +26,7 @@
         <li *ngIf="isSideBaristrue()" class="">
             <a routerLink="/jobs">
                 <i class="pe-7s-note2"></i>
-                <p>NGO Governance</p>
+                <p>NGO Government and Services</p>
             </a>
         </li>
         <li *ngIf="isSideBarisfalse()">
@@ -41,5 +41,12 @@
                 <p>Schedule An Appointment</p>
             </a>
         </li>
+        <li *ngIf="isSideBarisfalse()">
+            <a routerLink="/redshift">
+                <i class="pe-7s-note2"></i>
+                <p>Appointment Dates</p>
+            </a>
+        </li>
+
     </ul>
 </div>

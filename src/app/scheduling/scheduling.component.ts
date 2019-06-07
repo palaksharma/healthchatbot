@@ -12,8 +12,8 @@ import { SpeechRecognitionService } from '../speech_recognition.service';
 })
 export class SchedulingComponent implements OnInit{
   token:any;
-  messages: Observable<Message[]>;
-  formValue: string;
+  messages1: Observable<Message[]>;
+  formValue1: string;
   @ViewChild('template')
   private msgTempRef : TemplateRef<any>
   modalRef: BsModalRef;
@@ -39,7 +39,7 @@ export class SchedulingComponent implements OnInit{
   ngOnInit(){
     this.showVoiceRecognition()
     this.modalRef = this.modalService.show(this.msgTempRef);
-      this.messages = this.chat.conversation.asObservable()
+      this.messages1 = this.chat.conversation.asObservable()
       .scan((acc, val) => acc.concat(val));
   }
   
@@ -135,8 +135,8 @@ export class SchedulingComponent implements OnInit{
   /*Ending of a Function to make every template speak */
 
   sendMessage() {
-    this.chat.converse(this.formValue);
-    this.formValue = '';
+    this.chat.converse(this.formValue1);
+    this.formValue1 = '';
 
   }
 }
