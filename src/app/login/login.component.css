@@ -34,6 +34,14 @@
     height: 100%;
 }
 
+.center-block {
+    font-size: 50px;
+    color: #73b5b5;
+    line-height: 78px;
+    text-align: center;
+    background-color: #fff;
+}
+
 #login-box .logo .logo-caption {
     font-family: 'Poiret One', cursive;
     color: #000;
@@ -43,7 +51,7 @@
 
 #login-box .logo img {
     /* width: 200px; */
-    border: 2px solid #000;
+    /* border: 2px solid #000; */
 }
 
 #login-box .logo .tweak {

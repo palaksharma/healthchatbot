@@ -18,6 +18,13 @@
         <div class="dialog-box" id="style-2">
             <form class="form" id="template-container">
                 <ng-container *ngFor="let message1 of messages1 | async">
+                    <img src="../../assets/img/download.png" style="idth: 20px;
+                        height: 20px;
+                        border-radius: 20px;
+                        top: 10px;
+                        left: 10px;
+                        position: relative;
+                        float: left;">
                     <div class="message pad-15" [ngClass]="{ 'from': message1.sentBy==='bot' , 'to': message1.sentBy==='user' } ">
                         <input type="text" id="txt" class="txtNode" name="inputxt" value="{{message1.content}}">
                     </div>

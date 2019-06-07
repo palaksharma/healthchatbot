@@ -4,9 +4,6 @@ import { Observable, of, from } from 'rxjs';
 import 'rxjs/add/operator/scan';
 import { SpeechRecognitionService } from '../../speech_recognition.service';
 import * as $ from 'jquery/dist/jquery.min.js';
-import { validateConfig } from '@angular/router/src/config';
-
-
 
 @Component({
   selector: 'chat-dialog',
@@ -26,7 +23,6 @@ export class ChatDialogComponent implements OnInit {
     this.speechData = "";
     this.chat.conversation.subscribe(val => {
       this.data = val;
-      console.log("Data", this.data);
       if (this.data.length != 0) {
         this.content = this.data[0].content;
         if (typeof (this.content) == "object") {
@@ -38,12 +34,15 @@ export class ChatDialogComponent implements OnInit {
       }
     })
   }
+
+
   ngOnInit() {
     this.showVoiceRecognition();
     this.messages = this.chat.conversation.asObservable()
     .scan((acc, val) => acc.concat(val));
     console.log(this.messages);
   }
+
 
   ngOnDestroy() {
     this.speechRecognitionService.DestroySpeechObject();
@@ -133,8 +132,6 @@ export class ChatDialogComponent implements OnInit {
     if (speechSynthesis.onvoiceschanged !== undefined) {
       speechSynthesis.onvoiceschanged = populateVoiceList;
     }
-
-
 
     function speak() {
       if (synth.speaking) {

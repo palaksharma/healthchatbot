@@ -12,6 +12,7 @@ import { SpeechRecognitionService } from '../speech_recognition.service';
 })
 export class SchedulingComponent implements OnInit{
   token:any;
+  data:any;
   messages1: Observable<Message[]>;
   formValue1: string;
   @ViewChild('template')

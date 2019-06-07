@@ -14,5 +14,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'jobs',component: JobComponent },
     { path: 'introMessage',component: IntromessageComponent },
     { path:'scheduling', component: SchedulingComponent},
-    { path: 'redshift', component: RedshiftComponent}
+    { path: 'appointment', component: RedshiftComponent}
     ]

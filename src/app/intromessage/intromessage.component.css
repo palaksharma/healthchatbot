@@ -8,6 +8,7 @@
     top: 0px;
     left: 0px;
     height: auto;
+    color: #000;
     background-color: lightyellow;
 }
 
@@ -59,6 +60,15 @@
     padding: 20px;
     font-size: 14px;
     font-weight: 700;
+    text-align: justify;
+}
+
+#intorbg {
+    color: #000;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: justify;
 }
 
 #showMessage button,
