@@ -47,9 +47,14 @@ export class ChatService {
 
     return this.client.textRequest(msg)
       .then(res => {
+        console.log(res.result);
         if (res.result.fulfillment.messages[0].speech) {
           var speech = res.result.fulfillment.messages[0].speech;
           console.log("speech", speech);
+          if(res.result.parameters.DateofAppointment !="" && res.result.parameters.TimeOfAppointment != ""){
+            localStorage.setItem("Date", res.result.parameters.DateofAppointment);
+            localStorage.setItem("Time", res.result.parameters.TimeOfAppointment);
+          }
           const botMessage = new Message(speech, 'bot');
           this.update(botMessage);
           document.getElementById("showMessage").innerHTML = "";

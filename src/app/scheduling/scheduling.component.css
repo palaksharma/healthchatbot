@@ -7,6 +7,10 @@
     height: 100%;
 }
 
+#uploader.text-danger {
+    display: none !important;
+}
+
 p {
     text-align: center;
     color: #031618;

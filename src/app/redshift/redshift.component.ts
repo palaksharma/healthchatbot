@@ -6,16 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./redshift.component.scss']
 })
 export class RedshiftComponent implements OnInit {
-  data = [
-    {
-      "time": "2:00 am",
-      "date": "20th July 2019",
-      "link": "https://zoom.us/j/3071238375",
-    }
-  ];
+  date:any;
+  time:any;
+  data:any=[]
 
-
-  constructor() { }
+  constructor() {
+     this.date = localStorage.getItem("Date");
+     this.time = localStorage.getItem("Time");
+     this.data = [
+      {
+        "time": this.date,
+        "date": this.time,
+        "link": "https://zoom.us/j/3071238375",
+      }
+    ];
+    console.log(this.data);
+   }
 
   ngOnInit() {
   }

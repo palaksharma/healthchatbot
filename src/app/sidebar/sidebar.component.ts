@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Routes, RouterLink } from '@angular/router';
+import { Router,Routes, RouterLink } from '@angular/router';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -24,12 +24,16 @@ export class SidebarComponent implements OnInit {
   menuItems: any[];
   showSidebarItems:any=true;
 
-  constructor() { 
+  constructor(private router:Router) { 
     console.log(RouterLink);
     this.showSidebarItems=localStorage.getItem("showAdminItems");
     console.log(this.showSidebarItems);
   }
 
+  logoutUser(){
+      localStorage.clear();
+      this.router.navigate(["login"]);
+  }
   ngOnInit() {
     // this.menuItems = ROUTES.filter(menuItem => menuItem);
     // console.log(this.menuItems);

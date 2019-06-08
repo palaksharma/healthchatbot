@@ -11,6 +11,9 @@ import { SpeechRecognitionService } from '../speech_recognition.service';
   styleUrls: ['./scheduling.component.css']
 })
 export class SchedulingComponent implements OnInit{
+  showSearchButton: boolean;
+  formValue: string;
+  speechData: string;
   token:any;
   data:any;
   messages1: Observable<Message[]>;
@@ -18,8 +21,9 @@ export class SchedulingComponent implements OnInit{
   @ViewChild('template')
   private msgTempRef : TemplateRef<any>
   modalRef: BsModalRef;
+  ifUploadIsTrue:any=false;
   afuConfig = {
-    multiple: false,
+    multiple: true,
     formatsAllowed: ".jpg,.png",
     maxSize: "1",
     uploadAPI:  {
@@ -31,10 +35,46 @@ export class SchedulingComponent implements OnInit{
      afterUploadMsg_success: 'Successfully Uploaded !',
     }
   }
-
+  DocUpload(event){
+    console.log(event);
+    this.ifUploadIsTrue=true;
+  }
   constructor(private modalService: BsModalService,public chat: ChatService, private speechRecognitionService: SpeechRecognitionService) {
     this.token=localStorage.getItem("token");
+    this.showSearchButton = true;
   }
+
+  ngOnDestroy() {
+    this.speechRecognitionService.DestroySpeechObject();
+  }
+
+
+  /*Starting of a Function which records voice and display it*/
+  activateSpeechSearchMovie(): void {
+    console.log("IN")
+    this.showSearchButton = false;
+    this.speechRecognitionService.record()
+      .subscribe(
+        //listener
+        (value) => {
+          this.speechData = value;
+          this.formValue1 = value;
+        },
+        //errror
+        (err) => {
+          if (err.error == "no-speech") {
+            console.log("--restatring service--");
+            this.activateSpeechSearchMovie();
+          }
+        },
+        //completion
+        () => {
+          this.showSearchButton = true;
+          console.log("--complete--");
+          this.activateSpeechSearchMovie();
+        });
+  }
+  /*Ending of a Function which records voice and display it*/
 
  
   ngOnInit(){
@@ -135,6 +175,8 @@ export class SchedulingComponent implements OnInit{
     }
   }
   /*Ending of a Function to make every template speak */
+
+  
 
   sendMessage() {
     this.chat.converse(this.formValue1);

@@ -27,6 +27,7 @@ export class ChatDialogComponent implements OnInit {
         this.content = this.data[0].content;
         if (typeof (this.content) == "object") {
           this.templateOfButton();
+          
         }
       }
       else {
@@ -111,18 +112,24 @@ export class ChatDialogComponent implements OnInit {
         else if (aname == bname) return 0;
         else return +1;
       });
-      var selectedIndex = voiceSelect[0].selectedIndex < 0 ? 0 : voiceSelect[0].selectedIndex;
-      voiceSelect.innerHTML = '';
-      for (var i = 0; i < voices.length; i++) {
+      console.log(voices);
+      var result = voices.filter(obj => {
+        return obj.lang == 'hi-IN'
+      });
+      console.log(result);
+      if(result.length > 0) {
+        console.log(result[0]);
+        var selectedIndex = result[0].selectedIndex < 0 ? 0 : result[0].selectedIndex;
+        voiceSelect.innerHTML = '';
         var option = document.createElement('option');
-        option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+        option.textContent = result[0].name + ' (' + result[0].lang + ')';
 
-        if (voices[i].default) {
+        if (result[0].default) {
           option.textContent += ' -- DEFAULT';
         }
 
-        option.setAttribute('data-lang', voices[i].lang);
-        option.setAttribute('data-name', voices[i].name);
+        option.setAttribute('data-lang', result[0].lang);
+        option.setAttribute('data-name', result[0].name);
         voiceSelect.append(option);
       }
       voiceSelect.selectedIndex = selectedIndex;
@@ -140,6 +147,7 @@ export class ChatDialogComponent implements OnInit {
         return;
       }
       let data = arr.slice(-1)[0];
+      console.log(data);
       if (data !== '') {
         var utterThis = new SpeechSynthesisUtterance(data);
         utterThis.onend = function (event) {
@@ -159,11 +167,6 @@ export class ChatDialogComponent implements OnInit {
 
         console.log(utterThis);
         synth.speak(utterThis);
-        var amISpeaking = synth.speaking;
-        console.log("AmISpeaking", amISpeaking);
-        // if(amISpeaking==true){
-        //   speechSynthesi;
-        // }
       }
     }
 
@@ -171,10 +174,6 @@ export class ChatDialogComponent implements OnInit {
       event.preventDefault();
       speak();
     });
-
-    //   var timer = setTimeout(function () {   //calls click event after a certain time
-    //   speak();
-    // }, 100);
 
     voiceSelect.onchange = function () {
       speak();
