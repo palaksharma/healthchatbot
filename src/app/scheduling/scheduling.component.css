@@ -309,7 +309,7 @@ body {
     background-color: #2095fe;
 }
 
-#txt {
+#txt1 {
     background: none;
     color: #000;
     border: 0px;
@@ -494,7 +494,8 @@ body {
     /* width: 50%;
     float: left; */
     margin: 10px 0px;
-    margin-left: 30px;
+    /* margin-left: 30px; */
+    margin-right: 250px;
     /* text-align: right; */
 }
 
@@ -516,7 +517,8 @@ body {
 .message.from {
     background-color: #E5E4E9;
     color: #363636;
-    margin-right: 100px;
+    margin-right: 250px;
+    margin-left: 30px
 }
 
 .message.to+.message.to,
