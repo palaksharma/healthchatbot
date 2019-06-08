@@ -10,9 +10,10 @@
                     left: 10px;
                     position: relative;
                     float: left;">
-                    <p class="message pad-15" [ngClass]="{ 'from': message.sentBy==='bot' , 'to': message.sentBy==='user' } ">
-                        <input type="text" id="txt" class="txtNode" name="inputxt" value="{{message.content}}">
-                    </p>
+                    <div class="message pad-15" [ngClass]="{ 'from': message.sentBy==='bot' , 'to': message.sentBy==='user' } ">
+                        <span id="txt" class="txtNode" name="inputxt">{{message.content}}</span>
+                    </div>
+
                 </ng-container>
                 <div id="showMessage" class="txtNode pad-15"></div>
             </form>

@@ -100,6 +100,7 @@ export class SchedulingComponent implements OnInit{
 
     function speak() {
       if (synth.speaking) {
+        synth.cancel();
         return;
       }
       let data =arr.slice(-1)[0];

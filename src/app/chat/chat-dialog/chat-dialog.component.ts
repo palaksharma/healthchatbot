@@ -135,6 +135,7 @@ export class ChatDialogComponent implements OnInit {
 
     function speak() {
       if (synth.speaking) {
+        synth.cancel();
         console.error('speechSynthesis.speaking');
         return;
       }
@@ -148,6 +149,7 @@ export class ChatDialogComponent implements OnInit {
           console.error('SpeechSynthesisUtterance.onerror');
 
         }
+
         //var selectedOption = voiceSelect.children("option:selected")[0].attributes[1].value
         for (var i = 0; i < voices.length; i++) {
           if (voices[i].name === "Google हिन्दी") {
@@ -157,6 +159,11 @@ export class ChatDialogComponent implements OnInit {
 
         console.log(utterThis);
         synth.speak(utterThis);
+        var amISpeaking = synth.speaking;
+        console.log("AmISpeaking", amISpeaking);
+        // if(amISpeaking==true){
+        //   speechSynthesi;
+        // }
       }
     }
 
@@ -164,6 +171,10 @@ export class ChatDialogComponent implements OnInit {
       event.preventDefault();
       speak();
     });
+
+    //   var timer = setTimeout(function () {   //calls click event after a certain time
+    //   speak();
+    // }, 100);
 
     voiceSelect.onchange = function () {
       speak();

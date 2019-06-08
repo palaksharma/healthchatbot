@@ -54,43 +54,16 @@ export class ChatService {
           this.update(botMessage);
           document.getElementById("showMessage").innerHTML = "";
         } else {
-          var ao = res.result.fulfillment.messages[1].speech;
-          console.log(ao);
-          var str = ao
-          var a1 = new Array();
-          a1 = str.split("~");
-          speech = a1.join('\n')
-          console.log("speech1",speech)
+          var speech= res.result.fulfillment.messages[1].speech;
           const botMessage = new Message(speech, 'bot');
           this.update(botMessage);
           var s = res.result.fulfillment.messages[0].payload.data;
-          console.log("speech3", s);
           const botMessageOp = new Message(s, 'bot');
           this.update(botMessageOp);
         }
       });
   }
 
-  // getSchedulingMessage(msg: string) {
-  //   const userMessage = new Message(msg, 'user');
-  //   this.update(userMessage);
-  //   return this.client.textRequest(msg)
-  //     .then(res => {
-  //       if (res.result.fulfillment.messages[0].speech) {
-  //         var speech = res.result.fulfillment.messages[0].speech;
-  //         const botMessage = new Message(speech, 'bot');
-  //         this.update(botMessage);
-  //         document.getElementById("showMessage").innerHTML = "";
-  //       } else {
-  //         var speech = res.result.fulfillment.messages[1].speech;
-  //         const botMessage = new Message(speech, 'bot');
-  //         this.update(botMessage);
-  //         var s = res.result.fulfillment.messages[0].payload.data;
-  //         const botMessageOp = new Message(s, 'bot');
-  //         this.update(botMessageOp);
-  //       }
-  //     });
-  // }
 
 
 
