@@ -82,15 +82,10 @@ export class IntromessageComponent implements OnInit {
         }
       }
       utterThis.rate = 0.9;
-      console.log(utterThis);
       synth1.speak(utterThis);
       //synth1.cancel();
     
     }
-    // $(document).ready(function () {
-    //   console.log("ready");
-    //   introSpeak();
-    // });
 
     var timer = setTimeout(function () {   //calls click event after a certain time
       introSpeak();

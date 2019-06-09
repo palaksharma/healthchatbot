@@ -13,6 +13,7 @@ export class RedshiftComponent implements OnInit {
   constructor() {
      this.date = localStorage.getItem("Date");
      this.time = localStorage.getItem("Time");
+     if(this.date != "" && this.time != ""){
      this.data = [
       {
         "time": this.date,
@@ -20,7 +21,7 @@ export class RedshiftComponent implements OnInit {
         "link": "https://zoom.us/j/3071238375",
       }
     ];
-    console.log(this.data);
+  }
    }
 
   ngOnInit() {

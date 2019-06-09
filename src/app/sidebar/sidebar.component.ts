@@ -25,9 +25,7 @@ export class SidebarComponent implements OnInit {
   showSidebarItems:any=true;
 
   constructor(private router:Router) { 
-    console.log(RouterLink);
     this.showSidebarItems=localStorage.getItem("showAdminItems");
-    console.log(this.showSidebarItems);
   }
 
   logoutUser(){
@@ -35,8 +33,6 @@ export class SidebarComponent implements OnInit {
       this.router.navigate(["login"]);
   }
   ngOnInit() {
-    // this.menuItems = ROUTES.filter(menuItem => menuItem);
-    // console.log(this.menuItems);
   }
 
   isSideBaristrue(){

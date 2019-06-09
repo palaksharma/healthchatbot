@@ -36,7 +36,6 @@ export class SchedulingComponent implements OnInit{
     }
   }
   DocUpload(event){
-    console.log(event);
     this.ifUploadIsTrue=true;
   }
   constructor(private modalService: BsModalService,public chat: ChatService, private speechRecognitionService: SpeechRecognitionService) {
@@ -50,8 +49,7 @@ export class SchedulingComponent implements OnInit{
 
 
   /*Starting of a Function which records voice and display it*/
-  activateSpeechSearchMovie(): void {
-    console.log("IN")
+  activateSpeechSearchMovie1(): void {
     this.showSearchButton = false;
     this.speechRecognitionService.record()
       .subscribe(
@@ -64,14 +62,14 @@ export class SchedulingComponent implements OnInit{
         (err) => {
           if (err.error == "no-speech") {
             console.log("--restatring service--");
-            this.activateSpeechSearchMovie();
+            this.activateSpeechSearchMovie1();
           }
         },
         //completion
         () => {
           this.showSearchButton = true;
           console.log("--complete--");
-          this.activateSpeechSearchMovie();
+          this.activateSpeechSearchMovie1();
         });
   }
   /*Ending of a Function which records voice and display it*/
@@ -159,8 +157,6 @@ export class SchedulingComponent implements OnInit{
             utterThis.voice = voices[i];
           }
         }
-
-        console.log(utterThis);
         synth.speak(utterThis);
       }
     }
@@ -181,6 +177,5 @@ export class SchedulingComponent implements OnInit{
   sendMessage() {
     this.chat.converse(this.formValue1);
     this.formValue1 = '';
-    console.log(this.formValue1);
   }
 }

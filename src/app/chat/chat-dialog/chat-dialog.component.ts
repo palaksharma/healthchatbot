@@ -1,22 +1,64 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ChatService, Message } from '../../chat.service';
 import { Observable, of, from } from 'rxjs';
 import 'rxjs/add/operator/scan';
 import { SpeechRecognitionService } from '../../speech_recognition.service';
 import * as $ from 'jquery/dist/jquery.min.js';
+import Keyboard from "simple-keyboard";
+import layout from "simple-keyboard-layouts/build/layouts/hindi";
 
 @Component({
   selector: 'chat-dialog',
   templateUrl: './chat-dialog.component.html',
-  styleUrls: ['./chat-dialog.component.css']
+  styleUrls: [ './chat-dialog.component.css']
 })
-export class ChatDialogComponent implements OnInit {
+export class ChatDialogComponent implements OnInit,AfterViewInit {
   showSearchButton: boolean;
   speechData: string;
+  keyboardIsHide:any=false;
   messages: Observable<Message[]>;
   formValue: string;
   data: any;
   content: any;
+
+  value = "";
+  keyboard: Keyboard;
+
+
+  ngAfterViewInit() {
+    this.keyboard = new Keyboard({
+      onChange: input => this.onChange(input),
+      onKeyPress: button => this.onKeyPress(button),
+      layout: layout
+    });
+  }
+
+  onChange = (input: string) => {
+    this.formValue = input;
+    console.log("Input changed", input);
+  };
+
+  onKeyPress = (button: string) => {
+    console.log("Button pressed", button);
+
+    /**
+     * If you want to handle the shift and caps lock buttons
+     */
+    if (button === "{shift}" || button === "{lock}") this.handleShift();
+  };
+
+  onInputChange = (event: any) => {
+    this.keyboard.setInput(event.target.value);
+  };
+
+  handleShift = () => {
+    let currentLayout = this.keyboard.options.layoutName;
+    let shiftToggle = currentLayout === "default" ? "shift" : "default";
+
+    this.keyboard.setOptions({
+      layoutName: shiftToggle
+    });
+  };
 
   constructor(public chat: ChatService, private speechRecognitionService: SpeechRecognitionService) {
     this.showSearchButton = true;
@@ -35,6 +77,8 @@ export class ChatDialogComponent implements OnInit {
       }
     })
   }
+
+  
 
 
   ngOnInit() {
@@ -184,6 +228,7 @@ export class ChatDialogComponent implements OnInit {
 
   /*Starting of a Function which records voice and display it*/
   activateSpeechSearchMovie(): void {
+    console.log("INN:::")
     this.showSearchButton = false;
     this.speechRecognitionService.record()
       .subscribe(
@@ -217,8 +262,15 @@ export class ChatDialogComponent implements OnInit {
     this.formValue = '';
 
   }
+  
   /*Ending of Function to send message to dialog flow */
-
-
+  myfunc()
+  {
+    console.log("Grestt")
+   console.log("document.getElementsByClassName");
+   (<HTMLElement>document.getElementsByClassName("from")[3]).style.display="none";
+   (<HTMLElement>document.getElementsByClassName("from")[5]).style.display="none";
+    // document.getElementsByClassName("from")[5].style.display="none"
+  }
 
 }
