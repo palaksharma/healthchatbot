@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTES_PATH, NO_DTLS_AVAILABLE } from './../common/ao-constants';
+import { ChartType, ChartOptions } from 'chart.js';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import * as pluginAnnotations from 'chartjs-plugin-annotation';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 //import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import { ChartDataSets } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import * as Chartist from 'chartist';
-import { AppSharedService } from '../services/app-shared.service';
-import { DataService } from '../services/data.service';
-import { ChartType, ChartOptions } from 'chart.js';
-import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import * as pluginAnnotations from 'chartjs-plugin-annotation';
+
 
 @Component({
   selector: 'app-home',
@@ -18,68 +17,12 @@ import * as pluginAnnotations from 'chartjs-plugin-annotation';
 })
 
 export class DashboardComponent implements OnInit {
- 
-
-  constructor(private dataService: DataService, private sharedService: AppSharedService) {
-  }
-
-
-  ngOnInit() {
-  }
-
-  public pieChartOptions: ChartOptions = {
-    responsive: true,
-    legend: {
-      position: 'top',
-    },
-    plugins: {
-      datalabels: {
-        formatter: (value, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
-          return label;
-        },
-      },
-    }
-  };
-  public pieChartLabels: Label[] = ['Puberty', 'Birth-Control', 'Preganancy'];
-  public pieChartData: number[] = [30, 35, 35];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
-  public pieChartPlugins = [pluginDataLabels];
-  public pieChartColors = [
-    {
-      backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
-    },
-  ];
-
-
-
-  public barChartOptions: ChartOptions = {
-    responsive: true,
-    // We use these empty structures as placeholders for dynamic theming.
-    scales: { xAxes: [{}], yAxes: [{}] },
-    plugins: {
-      datalabels: {
-        anchor: 'end',
-        align: 'end',
-      }
-    }
-  };
-  public barChartLabels: Label[] = ['Pune', 'Delhi', 'Mumbai', 'Banglore', 'Kolkata', 'Chennai'];
+  
+  
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
-
-  public barChartData: ChartDataSets[] = [
-    { data: [20, 50, 10, 10, 30, 50], label: 'Issues' },
-  ];
-
-  public barChartLabels1: Label[] = ['Ahmadnagar', 'Akola', 'Amravati', 'Bhandara', 'Bid', 'Chandrapur'];
-
-  public barChartData1: ChartDataSets[] = [
-    { data: [22, 51, 10, 19, 31, 57], label: 'Issues' },
-  ];
-
+ 
   public barChartOptions2: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
@@ -88,8 +31,14 @@ export class DashboardComponent implements OnInit {
   public barChartLabels2: Label[] = ['Jan-Feb', 'Feb-Mar', 'Mar-April', 'April-May', 'May-June', 'June-July', 'July-August'];
  
   public barChartData2: ChartDataSets[] = [
-    { data: [10, 15, 8, 8, 5, 5, 10], label: 'Problems Raised' },
-    { data: [9, 4, 4, 2, 5, 3, 9], label: 'Problems Answered' }
+    { data: [10, 15, 8, 13, 5, 17, 10], label:'Mensturation Problems raised', stack: 'a' },
+    { data: [7, 12, 3, 8, 10, 15, 10], label:'Birth-Control Problems raised', stack: 'a' },
+    { data: [6, 10, 9, 4, 20, 15, 10], label:'Puberty Problems raised', stack: 'a' },
+    { data: [6, 10, 10, 4, 20, 15, 10], label:'Pregnancy Problems raised', stack: 'a' },
+    { data: [9, 11, 7, 11, 5, 13, 9], label: 'Mensturation Problems answered' , stack: 'b' },
+    { data: [4, 10, 3, 6, 10, 14, 9], label: 'Birth-Control Problems answered' , stack: 'b' },
+    { data: [3, 5, 8, 3, 10, 3, 9], label: 'Puberty Problems answered' , stack: 'b' },
+    { data: [3, 5, 9, 3, 10, 3, 9], label: 'Pregnancy Problems answered' , stack: 'b' },
   ];
   // Events
   chartClicked(e: any): void {
@@ -99,82 +48,37 @@ export class DashboardComponent implements OnInit {
   chartHovered(e: any): void {
     console.log(e);
   }
+  constructor() {
+  }
 
-  public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80], label: 'Puberty' },
-    { data: [28, 12, 40], label: 'Birth-Control' },
-    { data: [180, 48, 770], label: 'Preganancy', yAxisID: 'y-axis-1' }
-  ];
-  public lineChartLabels: Label[] = ['10-15', '15-25', '25-40'];
-  public lineChartOptions: (ChartOptions & { annotation: any }) = {
-    responsive: true,
-    scales: {
-      // We use this empty structure as a placeholder for dynamic theming.
-      xAxes: [{}],
-      yAxes: [
-        {
-          id: 'y-axis-0',
-          position: 'left',
-        },
-        {
-          id: 'y-axis-1',
-          position: 'right',
-          gridLines: {
-            color: 'rgba(255,0,0,0.3)',
-          },
-          ticks: {
-            fontColor: 'red',
-          }
-        }
-      ]
+
+  ngOnInit() {
+  }
+
+  data = [
+    {
+      "name": "Parul Rastogi",
+      "age": "13",
+      "place": "Uttar Pradesh",
+      "problem": "Mensturation",
+       "question":"मासिक धर्म नियमित रूप से नहीं आने पर क्या करें",
+      "answered": "Chat",
+      "prescription": "",
+      "status": "Completed"
     },
-    annotation: {
-      annotations: [
-        {
-          type: 'line',
-          mode: 'vertical',
-          scaleID: 'x-axis-0',
-          value: 'March',
-          borderColor: 'orange',
-          borderWidth: 2,
-          label: {
-            enabled: true,
-            fontColor: 'orange',
-            content: 'LineAnno'
-          }
-        },
-      ],
-    },
-  };
-  public lineChartColors: Color[] = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
-    { // red
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    {
+      "name": "Richa Rastogi",
+      "age": "13",
+      "place": "Bihar",
+      "problem": "Mensturation",
+      "question":"मासिक धर्म पर पेट में दर्द होने पर क्या करें",
+      "answered": "Chat",
+      "prescription": "",
+      "status": "Completed"
     }
   ];
-  public lineChartLegend = true;
-  public lineChartType = 'line';
-  public lineChartPlugins = [pluginAnnotations];
+
+ 
 
 
 }

@@ -11,7 +11,7 @@ import {SchedulingComponent} from '../../scheduling/scheduling.component';
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',component: DashboardComponent },
     { path: 'chat',  component: ChatDialogComponent},
-    { path: 'jobs',component: JobComponent },
+    { path: 'ngo',component: JobComponent },
     { path: 'introMessage',component: IntromessageComponent },
     { path:'scheduling', component: SchedulingComponent},
     { path: 'appointment', component: RedshiftComponent}
