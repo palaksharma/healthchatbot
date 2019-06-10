@@ -74,7 +74,13 @@ export class JobComponent implements OnInit {
     { data: [22, 51, 10, 19, 31, 57], label: 'Issues' },
   ];
 
- 
+  chartClicked(e: any): void {
+    console.log(e);
+  }
+
+  chartHovered(e: any): void {
+    console.log(e);
+  }
 
   public lineChartData: ChartDataSets[] = [
     { data: [35,25,6,5,4,10], label: 'Puberty'},
