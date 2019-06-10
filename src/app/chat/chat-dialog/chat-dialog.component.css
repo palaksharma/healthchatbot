@@ -60,7 +60,7 @@ h2 {
 }
 
 .fixedDiv {
-    height: 76px;
+    height: 200px;
     position: fixed;
     bottom: 0%;
     width: 100%;
@@ -118,7 +118,7 @@ h2 {
 
 .scrollbar {
     float: right;
-    height: 432px;
+    height: 350px;
     width: 100%;
     overflow-y: scroll;
 }

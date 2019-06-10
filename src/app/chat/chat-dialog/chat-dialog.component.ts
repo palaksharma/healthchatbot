@@ -196,6 +196,8 @@ export class ChatDialogComponent implements OnInit,AfterViewInit {
         var utterThis = new SpeechSynthesisUtterance(data);
         utterThis.onend = function (event) {
           console.log('SpeechSynthesisUtterance.onend');
+          (<HTMLElement>document.getElementsByClassName("from")[3]).style.display="none";
+          (<HTMLElement>document.getElementsByClassName("from")[5]).style.display="none";
         }
         utterThis.onerror = function (event) {
           console.error('SpeechSynthesisUtterance.onerror');
@@ -265,12 +267,9 @@ export class ChatDialogComponent implements OnInit,AfterViewInit {
   
   /*Ending of Function to send message to dialog flow */
   myfunc()
-  {
-    console.log("Grestt")
-   console.log("document.getElementsByClassName");
-   (<HTMLElement>document.getElementsByClassName("from")[3]).style.display="none";
-   (<HTMLElement>document.getElementsByClassName("from")[5]).style.display="none";
-    // document.getElementsByClassName("from")[5].style.display="none"
-  }
-
+ { 
+  console.log("document.getElementsByClassName");
+  (<HTMLElement>document.getElementsByClassName("from")[3]).style.display="none"
+   // document.getElementsByClassName("from")[5].style.display="none"
+ }
 }
