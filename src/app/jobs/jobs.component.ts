@@ -65,13 +65,13 @@ export class JobComponent implements OnInit {
   public barChartPlugins = [pluginDataLabels];
 
   public barChartData: ChartDataSets[] = [
-    { data: [20, 50, 10, 10, 30, 50], label: 'Issues' },
+    { data: [20, 50, 80, 69, 30, 50], label: 'Issues' },
   ];
 
   public barChartLabels1: Label[] = ['Uttar Pradesh', 'West Bengal', 'Bihar', 'Madhya Pradesh', 'Haryana', 'Rajasthan'];
 
   public barChartData1: ChartDataSets[] = [
-    { data: [22, 51, 10, 19, 31, 57], label: 'Issues' },
+    { data: [22, 51, 60, 78, 31, 57], label: 'Issues' },
   ];
 
   chartClicked(e: any): void {

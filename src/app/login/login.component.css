@@ -2,6 +2,7 @@
     position: absolute;
     top: 0px;
     left: 50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 350px;
     margin: 0 auto;
@@ -10,6 +11,21 @@
     min-height: 250px;
     padding: 20px;
     z-index: 9999;
+}
+
+.titles span {
+    color: #000;
+    font-size: 20px;
+    z-index: 9;
+    top: 210px;
+    position: relative;
+}
+
+.titles {
+    /* border: 2px solid #000; */
+    border-radius: 60px;
+    text-align: center;
+    background-color: #fff;
 }
 
 .wrapper {
@@ -35,18 +51,20 @@
 }
 
 .center-block {
-    font-size: 50px;
-    color: #73b5b5;
-    line-height: 78px;
+    font-size: 50px !important;
+    color: #73b5b5 !important;
     text-align: center;
     background-color: #fff;
+    opacity: 0.75;
+    text-decoration: underline;
 }
 
 #login-box .logo .logo-caption {
     font-family: 'Poiret One', cursive;
     color: #000;
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
+    margin-top: 0px;
 }
 
 #login-box .logo img {

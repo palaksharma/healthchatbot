@@ -41,6 +41,10 @@
     color: #21595f;
 }
 
+.table td {
+    text-align: center;
+}
+
 .table th {
     border-bottom: 2px solid #000;
 }

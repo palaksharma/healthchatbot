@@ -2,16 +2,26 @@
     <div class="row">
         <div id="login-box">
             <div class="logo">
-                <div class="img-circle center-block">
-                    आरोग्य संगिनी
-                    <img src="../../assets/img/Anju_Bot.png" style="width: 38%;" class="img" />
-                </div>
-
-                <!-- <h1 class="logo-caption"><span class="tweak"></span>L</span>o<span class="tweak">g</span>i<span class="tweak">n</span></h1> -->
+                <!-- <div class="img-circle">
+                    <div class="titles">
+                        <span>آرگيا سننگي</span>
+                        <span>வானியல் சாங்கிணி</span>
+                        <span>अरोग्य संगीनी</span>
+                        <span>arogya sangini</span>
+                        <span class="center-block">आरोग्य संगिनी
+                        </span>
+                        <span>ఆగ్రోయ సన్జిని</span>
+                        <span>ആംഗ്യ സന്യാസി</span>
+                        <span>অরগয়া সাংজি</span>
+                    </div> -->
+                <h1 class="logo-caption"><span class="tweak"></span><span>L</span>o<span class="tweak ">g</span>i<span class="tweak ">n</span></h1>
+                <img src="../../assets/img/Capture.PNG" style="width: 100%;
+                    border: 2px solid #000;">
+                <!-- </div> -->
             </div>
             <!-- /.logo -->
             <form class="controls" name="form" (ngSubmit)="f.form.valid && validateLogin()" #f="ngForm">
-                <div class="form-group">
+                <div class="form-group ">
                     <input type="text" name="username" placeholder="Username" class="form-control" [(ngModel)]="model.username" #username="ngModel" required />
                     <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
                 </div>
@@ -27,7 +37,7 @@
             <!-- /.controls -->
         </div>
         <!-- /#login-box -->
-        <!-- <particles [style]="style" [width]="width" [height]="height" [params]="params"></particles> -->
+        <!-- <particles [style]="style " [width]="width " [height]="height " [params]="params "></particles> -->
     </div>
     <!-- /.container -->
     <ul class="bg-bubbles">

@@ -64,7 +64,7 @@ export class IntromessageComponent implements OnInit {
         return;
       }
 
-      var utterThis = new SpeechSynthesisUtterance("नमस्ते, मैं अंजू हूं और मैं यहां आपको जानकारी प्रदान करने और उन विषयों पर शिक्षित करने में मदद कर राही हूं जो आपको स्वस्थ जीवन जीने में मदद करेंगे। आप मुझसे बिना किसी डर के कुछ भी बात कर सकते हैं। मैं आपका सबसे अच्छी सहेली हूं और आपकी देखभाल करने के लिए यहां हूं।");
+      var utterThis = new SpeechSynthesisUtterance("नमस्ते, मैं अंजू हूं और मैं यहां आपको जानकारी प्रदान करने और उन विषयों पर शिक्षित करने में मदद कर रही हूं जो आपको स्वस्थ जीवन जीने में मदद करेंगे। आप मुझसे बिना किसी डर के कुछ भी बात कर सकते हैं। मैं आपकी सबसे अच्छी सहेली हूं और आपकी देखभाल करने के लिए यहां हूं।");
       utterThis.onend = function (event) {
         console.log('SpeechSynthesisUtterance.onend');
          var t = event.timeStamp - t;
