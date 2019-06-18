@@ -47,7 +47,9 @@
                                     <td>{{item.question}}</td>
                                     <td>{{item.answered}}</td>
                                     <td>{{item.prescription}}</td>
-                                    <td>{{item.status}}</td>
+                                    <td *ngIf="item.status=='Completed'"><a class="greenColor">{{item.status}}</a></td>
+                                    <td *ngIf="item.status=='Pending'"><a class="redColor" [routerLink]="['/pendingAnswers',item.question]">{{item.status}}</a></td>
+                                    <td *ngIf="item.status=='Reviewd'"><a class="purpleColor">Reviewd By a Specialist</a></td>
                                 </tr>
 
                             </tbody>

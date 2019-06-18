@@ -7,7 +7,6 @@ import { LbdModule } from '../../lbd/lbd.module';
 import { NguiMapModule} from '@ngui/map';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
-
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import {ChatDialogComponent} from  '../../chat/chat-dialog/chat-dialog.component';
 import { JobComponent } from '../../jobs/jobs.component';
@@ -25,7 +24,7 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import {SchedulingComponent} from '../../scheduling/scheduling.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AngularFileUploaderModule } from "angular-file-uploader";
-
+import { PendingAnswersComponent } from '../../pending-answers/pending-answers.component';
 
 
 @NgModule({
@@ -58,7 +57,8 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
     IntromessageComponent,
     SchedulingComponent,
     JobComponent,
-    RedshiftComponent
+    RedshiftComponent,
+    PendingAnswersComponent
   ]
 })
 

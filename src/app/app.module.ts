@@ -24,14 +24,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-
-
 import { AppSharedService } from './services/app-shared.service';
 import { DataService } from './services/data.service';
 import { LoginComponent } from 'app/login/login.component';
 import { ParticlesModule } from 'angular-particle';
 import {ChatService} from './chat.service';
 import {SpeechRecognitionService} from './speech_recognition.service';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -52,6 +51,7 @@ import {SpeechRecognitionService} from './speech_recognition.service';
     MatPaginatorModule,
     MatInputModule,
     MatGridListModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     MatProgressSpinnerModule,
     MatChipsModule,
@@ -62,7 +62,8 @@ import {SpeechRecognitionService} from './speech_recognition.service';
   declarations: [
     AppComponent,
     LoginComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+  
 
   ],
   providers: [

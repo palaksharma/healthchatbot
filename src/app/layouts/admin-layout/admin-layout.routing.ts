@@ -6,6 +6,7 @@ import { JobComponent } from '../../jobs/jobs.component';
 import {RedshiftComponent} from '../../redshift/redshift.component';
 import { IntromessageComponent } from '../../intromessage/intromessage.component';
 import {SchedulingComponent} from '../../scheduling/scheduling.component';
+import { PendingAnswersComponent } from '../../pending-answers/pending-answers.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -14,5 +15,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'ngo',component: JobComponent },
     { path: 'introMessage',component: IntromessageComponent },
     { path:'scheduling', component: SchedulingComponent},
-    { path: 'appointment', component: RedshiftComponent}
+    { path: 'appointment', component: RedshiftComponent},
+    { path: 'pendingAnswers/:question', component: PendingAnswersComponent}
     ]

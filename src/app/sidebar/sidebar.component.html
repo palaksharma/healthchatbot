@@ -29,28 +29,34 @@
                 <p>NGO's and Government Services</p>
             </a>
         </li>
+        <li *ngIf="isSideBaristrue()">
+            <a (click)="logoutUser()">
+                <i class="pe-7s-note2"></i>
+                <p>Logout</p>
+            </a>
+        </li>
         <li *ngIf="isSideBarisfalse()">
             <a routerLink="/introMessage">
                 <i class="pe-7s-note2"></i>
-                <p>Chat</p>
+                <p>बातचीत</p>
             </a>
         </li>
         <li *ngIf="isSideBarisfalse()">
             <a routerLink="/scheduling">
                 <i class="pe-7s-note2"></i>
-                <p>Schedule An Appointment</p>
+                <p>नियुक्ति का समय</p>
             </a>
         </li>
         <li *ngIf="isSideBarisfalse()">
             <a routerLink="/appointment">
                 <i class="pe-7s-note2"></i>
-                <p>Appointment Dates</p>
+                <p>नियुक्ति तिथि</p>
             </a>
         </li>
-        <li>
+        <li *ngIf="isSideBarisfalse()">
             <a (click)="logoutUser()">
                 <i class="pe-7s-note2"></i>
-                <p>Logout</p>
+                <p>लोगआउट</p>
             </a>
         </li>
 

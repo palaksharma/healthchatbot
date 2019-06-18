@@ -1,10 +1,12 @@
 import { Component, OnInit , TemplateRef , ViewChild, AfterViewInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { RouterModule, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ChatService, Message } from '../chat.service';
 import * as $ from 'jquery/dist/jquery.min.js';
 import { Observable, of, from } from 'rxjs';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { SpeechRecognitionService } from '../speech_recognition.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-scheduling',
   templateUrl: './scheduling.component.html',
@@ -38,7 +40,7 @@ export class SchedulingComponent implements OnInit{
   DocUpload(event){
     this.ifUploadIsTrue=true;
   }
-  constructor(private modalService: BsModalService,public chat: ChatService, private speechRecognitionService: SpeechRecognitionService) {
+  constructor(private modalService: BsModalService,public chat: ChatService,  private router: Router, private toastr: ToastrService,private speechRecognitionService: SpeechRecognitionService) {
     this.token=localStorage.getItem("token");
     this.showSearchButton = true;
   }

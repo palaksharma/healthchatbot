@@ -64,6 +64,12 @@ export class DashboardComponent implements OnInit {
     console.log(e);
   }
   constructor() {
+    var storageArr = sessionStorage.getItem("Question");
+    for(var i =0; i<this.data.length;i++){
+      if(this.data[i].question==storageArr){
+        this.data[i].status="Reviewd";
+      }
+    }
   }
 
 

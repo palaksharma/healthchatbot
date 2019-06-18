@@ -24,6 +24,7 @@ app.use(hsts({
     includeSubDomains: true,
     preload: true
 }));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 const NG_DIR_PATH_HEALTH = "/dist/HealthChatBot" || '/app';
@@ -35,6 +36,24 @@ app.use(function(req, res, next) {
     next();
 });
 
+/* To validate login */
+app.post('/pendingAnswers', bodyParser.json(), (req, res) => {
+    const question = req.body.question;
+    const answers = req.body.answer;
+    if (question && answers) {
+        res.send({
+            success: true,
+            message: 'Answer of the pending question is saved successfully',
+            question: [question],
+            answers: [answers]
+        });
+    } else {
+        res.send(400).json({
+            success: false,
+            message: 'Answer of the pending question is not saved successfully.Please try again.'
+        });
+    }
+});
 
 
 /* To validate login */

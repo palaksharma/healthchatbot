@@ -1,0 +1,61 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row margin0">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Answers of Pending Questions </h4>
+                    </div>
+                    <div class="content">
+                        <div>
+                            <div>
+                                <h4 class="titleQuestion">{{question}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="form" #pendingForm="ngForm" (ngSubmit)="pendingAnswers(pendingForm)" novalidate>
+                        <div class="content">
+                            <div>
+                                <div>
+                                    <textarea class="titleQuestion" translate="yes" name="textField" [(ngModel)]="answers" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content text-center">
+                            <button type="submit" [disabled]="!pendingForm.valid" class="btn butn-col">Submit
+                                    </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-md-12" *ngIf="succesfullyAnsSubmitted==true">
+                <div class="card incHeight">
+                    <div class="header">
+                        <h4 class="title">Problems which are reviewed by specialist and answered.</h4>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">S.No</th>
+                                    <th scope="col">Question/Problem</th>
+                                    <th scope="col">Answers</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of arrayOfRecords">
+                                    <td>{{item.sno}}</td>
+                                    <td>{{item.question}}</td>
+                                    <td>{{item.answers}}</td>
+                                    <td>{{item.status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

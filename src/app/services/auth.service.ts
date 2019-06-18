@@ -19,6 +19,13 @@ export class AuthService {
     });
   }
 
+  pendingAnswers(question: string, answer: string) {
+    return this.http.post('/pendingAnswers', {
+      question: question,
+      answer: answer
+    });
+  }
+
   logout() {
     localStorage.removeItem(NG_AUTH_TOKEN);
     this.router.navigate(['/login']);
