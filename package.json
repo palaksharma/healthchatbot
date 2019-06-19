@@ -8,7 +8,7 @@
     },
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
+        "start": "node app-server.js",
         "heroku-postbuild": "ng build --prod",
         "build": "ng build",
         "test": "ng test",
