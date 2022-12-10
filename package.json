@@ -52,7 +52,7 @@
         "codelyzer": "~4.5.0",
         "cookie-parser": "^1.4.4",
         "core-js": "2.5.7",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "googleapis": "33.0.0",
         "helmet": "^3.18.0",
         "hsts": "^2.2.0",
